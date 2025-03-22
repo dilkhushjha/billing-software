@@ -5,19 +5,19 @@ import FabButton from '../Fab/Fab'
 
 const Footer = () => {
     const location = useLocation()
-    const [user, setUser ] = useState(JSON.parse(localStorage.getItem('profile')))
+    const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
 
     useEffect(() => {
         setUser(JSON.parse(localStorage.getItem('profile')))
     }, [location])
 
     return (
-        <footer>
+        <footer className={styles.footer}>
             <div className={styles.footerText}>
-            ©Panshak Solomon  | Made with ♥ in 🇳🇬 <span><a href="https://github.com/Panshak/accountill" target="_blank" rel="noopener noreferrer">[Download source code]</a></span>
+                Navya Saree © 2025
             </div>
             {user && (
-            <FabButton />
+                <FabButton />
             )}
         </footer>
     )

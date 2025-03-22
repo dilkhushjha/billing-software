@@ -2,21 +2,25 @@ import React from "react";
 import ReactApexChart from "react-apexcharts";
 
 function Chart({ paymentHistory }) {
+  console.log(paymentHistory, "On chart file")
+
+  let paymentDates = []
+  for (let i = 0; i < paymentHistory.length; i++) {
+    const newDate = new Date(paymentHistory[i].datePaid);
+    let localDate = newDate.toLocaleDateString();
+    paymentDates = [...paymentDates, localDate]
+  }
+
+  console.log(paymentDates)
 
 
-    let paymentDates = []
-    for(let i = 0; i < paymentHistory.length; i++) {
-      const newDate = new Date(paymentHistory[i].datePaid);
-      let localDate = newDate.toLocaleDateString();
-            paymentDates = [...paymentDates, localDate]
-    }
+  let paymentReceived = []
+  for (let i = 0; i < paymentHistory.length; i++) {
+    paymentReceived = [...paymentReceived, paymentHistory[i].amountPaid]
+  }
 
+  console.log(paymentReceived)
 
-    let paymentReceived = []
-    for(let i = 0; i < paymentHistory.length; i++) {
-            paymentReceived = [...paymentReceived, paymentHistory[i].amountPaid]
-    }
-  
 
 
   const series = [
@@ -25,14 +29,17 @@ function Chart({ paymentHistory }) {
       name: "Payment Recieved",
       data: paymentReceived,
     },
+
   ];
+
+  console.log(series)
   const options = {
     chart: {
       zoom: { enabled: false },
-      toolbar: {show: false},
+      toolbar: { show: true },
     },
     dataLabels: {
-      enabled: false,
+      enabled: true,
     },
 
     stroke: {
@@ -63,9 +70,9 @@ function Chart({ paymentHistory }) {
       <ReactApexChart
         options={options}
         series={series}
-        type="bar"
+        type="scatter"
         height={300}
-        
+
       />
     </div>
   );

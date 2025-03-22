@@ -10,6 +10,7 @@
   /* background-color: white; */
   border-bottom: 1px solid rgb(230, 230, 230);
 }
+
 .logo {
   width: 70px;
   height: 70px;
@@ -20,6 +21,7 @@
   padding: 12px 30px;
   border-radius: 50px;
   background-color: white;
+  color: rgb(51, 51, 216);
   cursor: pointer;
   font-size: 15px;
   outline: none;
@@ -27,7 +29,16 @@
   /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
 }
 
+.login:hover {
+  background-color: rgb(209, 233, 255);
+}
+
 .hero {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  align-items: center;
+  text-align: center;
   width: 50%;
   margin: 30px auto;
   margin-top: 70px;
@@ -54,6 +65,7 @@
   align-items: center;
   justify-content: center;
 }
+
 .hero img {
   width: 1200px;
   margin: 0px auto;
